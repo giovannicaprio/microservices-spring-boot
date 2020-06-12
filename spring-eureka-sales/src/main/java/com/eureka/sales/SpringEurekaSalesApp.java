@@ -24,7 +24,6 @@ public class SpringEurekaSalesApp {
 			System.out.println("Starting WatchServiceSales to monitor folder");
 			new WatchServiceSales().doProcess();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		SpringApplication.run(SpringEurekaSalesApp.class, args);

@@ -2,19 +2,13 @@ package com.eureka.sales.controller;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 import com.eureka.sales.entities.Client;
 import com.eureka.sales.entities.Item;
@@ -58,7 +52,7 @@ public class FileHandler {
         Long qtdClients = 0L;
         Long qtdSellers = 0L;
         Long idBestSale = 0L;
-        String worstSeller = "";
+        //String worstSeller = "";
         BigDecimal biggerTotalAmmout = new BigDecimal("0.0");
         
         for (String line : lines) {

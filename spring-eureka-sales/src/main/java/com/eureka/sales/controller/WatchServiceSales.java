@@ -33,7 +33,7 @@ public class WatchServiceSales {
 
         // (1) Create a new watch service
         WatchService watchService = FileSystems.getDefault().newWatchService();
-        System.out.println("Watch service sales at: " + watchedDir);
+        System.out.println("Watch service sales at: " + watchedDir );
 
 
         // (2) Get the directory to be monitored	

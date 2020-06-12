@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +19,7 @@ import com.eureka.image.entities.Image;
 @RequestMapping("/")
 public class HomeController {
 	@Autowired
-	private Environment env;
+	//private Environment env;
 		
 	@RequestMapping("/images")
 	public List<Image> getImages() {
