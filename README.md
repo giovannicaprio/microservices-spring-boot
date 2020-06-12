@@ -6,7 +6,7 @@ Esse projeto está dividido da seguinte maneira: um gatewayZull, um servidor Eur
 
 Esse é o microservice responsável por observar continuamente o diretório data/in e gerar reporter sempre que o mesmo receber um no arquivo. Seu funcionamento e muito simples, ao ler um arquivo .TXT no formato especificado abaixo, o mesmo gera um arquivo .JSON com os dados necessários apra o report pedido e insere na pasta data/out
 
-## spring-eureka-gallery
+## spring-eureka-gallery - port: 8100
 
 Esse microservice é o dahsboard do usuário, sendo sua url /reports mostra em tela todos os relatórios dispóníveis
 
@@ -23,8 +23,6 @@ Todas as chamadas externas são feitas via gateway zull. Para acessar os reports
 [] Testes unitários
 [] Commom Service to handle path variables
 [] Database connection
-
-
 
 ## Descrição:
 Criar um sistema de análise de dados de venda que irá importar lotes de arquivos e produzir
