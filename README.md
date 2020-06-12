@@ -1,5 +1,31 @@
 # Microservices with Spring Boot
 
+Esse projeto está dividido da seguinte maneira: um gatewayZull, um servidor Eureka e dois microservices. 
+
+## spring-eureka-sales - port: 8300
+
+Esse é o microservice responsável por observar continuamente o diretório data/in e gerar reporter sempre que o mesmo receber um no arquivo. Seu funcionamento e muito simples, ao ler um arquivo .TXT no formato especificado abaixo, o mesmo gera um arquivo .JSON com os dados necessários apra o report pedido e insere na pasta data/out
+
+## spring-eureka-gallery
+
+Esse microservice é o dahsboard do usuário, sendo sua url /reports mostra em tela todos os relatórios dispóníveis
+
+
+## spring-eureka-server - port: 8761
+Eureka server
+
+## spring-eureka-zull (gateway) - port: 8762
+
+Todas as chamadas externas são feitas via gateway zull. Para acessar os reports: localhost:8762/gallery/reports
+
+## TODO
+[] Melhorar visualização de dados no dashboard
+[] Testes unitários
+[] Commom Service to handle path variables
+[] Database connection
+
+
+
 ## Descrição:
 Criar um sistema de análise de dados de venda que irá importar lotes de arquivos e produzir
 um relatório baseado em informações presentes no mesmo.
