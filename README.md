@@ -19,10 +19,11 @@ Eureka server
 Todas as chamadas externas são feitas via gateway zull. Para acessar os reports: localhost:8762/gallery/reports
 
 ## TODO
-[] Melhorar visualização de dados no dashboard
-[] Testes unitários
-[] Commom Service to handle path variables
-[] Database connection
+* Melhorar visualização de dados no dashboard
+* Testes unitários
+* Commom Service to handle path variables
+* Database connection
+
 
 ## Descrição:
 Criar um sistema de análise de dados de venda que irá importar lotes de arquivos e produzir
