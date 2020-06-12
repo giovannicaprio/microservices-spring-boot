@@ -12,6 +12,8 @@ import java.nio.file.WatchService;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchEvent;
 import static java.nio.file.StandardWatchEventKinds.*;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -62,13 +64,14 @@ public class WatchServiceSales {
 
             EVENT_FOR_LOOP:
             for(WatchEvent<?> genericEvent: eventList) {
-
+                Boolean fileProcesssed = false;
                 // Retrieve and process the event kind
                 if (genericEvent.kind() == OVERFLOW) {
 				
                     //System.out.println("Overflow event");
                     continue EVENT_FOR_LOOP; // next event
                 }
+                //else if (genericEvent.kind() == ENTRY_CREATE || genericEvent.kind() == ENTRY_MODIFY) {
                 else if (genericEvent.kind() == ENTRY_CREATE) {
 
                      // else, genericEvent.kind() is WatchEvent.Kind<Path>
@@ -83,7 +86,15 @@ public class WatchServiceSales {
 
                     //reads file data
                     FileHandler filehandler = new FileHandler();
-                    filehandler.readFile(watchedDir + filePath.toString());
+                    fileProcesssed = filehandler.readFile(watchedDir + filePath.toString(), filePath.getFileName().toString());
+
+                    //deleta, ou não, o aruivo do diretório
+                    /*if(fileProcesssed){
+                        //deleta o arquivo 
+                        File file = new File(watchedDir + filePath.toString());
+                        file.delete();
+                    }*/
+
                 }else{
                     System.out.println("Evento não parametrizado para ações do tipo: " + genericEvent.kind());
                 }

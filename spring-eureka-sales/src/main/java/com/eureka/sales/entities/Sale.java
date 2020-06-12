@@ -7,7 +7,7 @@ public class Sale {
     public Long saleId;
     public Map<Item, Integer> items;
     public String sellerName;
-
+    public String sellerLegalDocumentNumber;
     
 
     public Long getSaleId() {
@@ -45,6 +45,14 @@ public class Sale {
         }
 
         return totalAmmout;      
+    }
+
+    public String getSellerLegalDocumentNumber() {
+        return sellerLegalDocumentNumber;
+    }
+
+    public void setSellerLegalDocumentNumber(String sellerLegalDocumentNumber) {
+        this.sellerLegalDocumentNumber = sellerLegalDocumentNumber;
     }
 
     
