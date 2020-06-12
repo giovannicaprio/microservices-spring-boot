@@ -1,0 +1,1 @@
+Quantidade de clientes: 2Quantidade de vendedores: 2ID venda mais cara: 10 -> com o valor de: 1199.00Pior vendedor: 2

@@ -1,14 +1,31 @@
 # Microservices with Spring Boot
-The source code for medium series of articles on Microservices with Spring Boot. 
 
-The series of articles can be found below:
-- [Microservices with Spring Boot — Intro to Microservices (Part 1)](https://medium.com/omarelgabrys-blog/microservices-with-spring-boot-intro-to-microservices-part-1-c0d24cd422c3)
-- [Microservices with Spring Boot — Creating our Microserivces & Gateway (Part 2)](https://medium.com/omarelgabrys-blog/microservices-with-spring-boot-creating-our-microserivces-gateway-part-2-31f8aa6b215b)
-- [Microservices with Spring Boot — Authentication with JWT (Part 3)](https://medium.com/omarelgabrys-blog/microservices-with-spring-boot-authentication-with-jwt-part-3-fafc9d7187e8)
-- [Microservices with Spring Boot — Circuit Breaker & Log Tracing (Part 4)](https://medium.com/omarelgabrys-blog/microservices-with-spring-boot-circuit-breaker-log-tracing-part-4-9cdf5e898988)
-
-I've written this script in my free time during my work. If you find it useful, please support the project by spreading the word.
-
-Contribute by creating new issues, sending pull requests on Github or you can send an email at: omar.elgabry.93@gmail.com
-
-Thanks.
+Descrição:
+Criar um sistema de análise de dados de venda que irá importar lotes de arquivos e produzir
+um relatório baseado em informações presentes no mesmo.
+Existem 3 tipos de dados dentro dos arquivos e eles podem ser distinguidos pelo seu
+identificador que estará presente na primeira coluna de cada linha, onde o separador de
+colunas é o caractere “ç”.
+Dados do vendedor
+Os dados do vendedor possuem o identificador 001 e seguem o seguinte formato:
+001çCPFçNameçSalary
+Dados do cliente
+Os dados do cliente possuem o identificador 002 e seguem o seguinte formato:
+002çCNPJçNameçBusiness Area
+Dados de venda
+Os dados de venda possuem o identificador 003 e seguem o seguinte formato:
+003çSale IDç[Item ID-Item Quantity-Item Price]çSalesman name
+Exemplo de conteúdo total do arquivo:
+001ç1234567891234çPedroç50000
+001ç3245678865434çPauloç40000.99
+002ç2345675434544345çJose da SilvaçRural
+002ç2345675433444345çEduardo PereiraçRural
+003ç10ç[1-10-100,2-30-2.50,3-40-3.10]çPedro
+003ç08ç[1-34-10,2-33-1.50,3-40-0.10]çPaulo
+O sistema deverá ler continuamente todos os arquivos dentro do diretório padrão
+HOMEPATH/data/in e colocar o arquivo de saída em HOMEPATH/data/out.
+No arquivo de saída o sistema deverá possuir os seguintes dados:
+• Quantidade de clientes no arquivo de entrada
+• Quantidade de vendedores no arquivo de entrada
+• ID da venda mais cara
+• O pior vendedor
