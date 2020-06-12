@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class SpringEurekaSalesTests {
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() {
 	}
 
 }

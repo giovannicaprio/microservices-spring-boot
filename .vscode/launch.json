@@ -23,39 +23,12 @@
         },
         {
             "type": "java",
-            "name": "CodeLens (Launch) - SpringEurekaImageApp",
-            "request": "launch",
-            "mainClass": "SpringEurekaImageApp",
-            "projectName": "microservices-spring-boot_98e750ff"
-        },
-        {
-            "type": "java",
             "name": "Spring Boot-SpringZuulApplication<spring-eureka-zuul>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "mainClass": "com.eureka.zuul.SpringZuulApplication",
             "projectName": "spring-eureka-zuul",
-            "args": ""
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-SpringEurekaImageApp<spring-eureka-course>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "mainClass": "com.eureka.image.SpringEurekaImageApp",
-            "projectName": "spring-eureka-course",
-            "args": ""
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-SpringEurekaCommonApp<spring-eureka-common>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "mainClass": "com.eureka.common.SpringEurekaCommonApp",
-            "projectName": "spring-eureka-common",
             "args": ""
         },
         {

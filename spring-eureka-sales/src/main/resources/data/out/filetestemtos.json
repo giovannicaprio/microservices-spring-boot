@@ -1,0 +1,30 @@
+{
+    "sellers": {
+        "3245678865434": {
+            "legalDocumentNumber": "3245678865434",
+            "name": "Paulo",
+            "salary": 40000.99
+        },
+        "1234567891234": {
+            "legalDocumentNumber": "1234567891234",
+            "name": "Pedro",
+            "salary": 50000
+        }
+    },
+    "clients": {
+        "2345675433444345": {
+            "legalDocumentNumber": "2345675433444345",
+            "name": "Eduardo Pereira",
+            "businessArea": "Rural"
+        },
+        "2345675434544345": {
+            "legalDocumentNumber": "2345675434544345",
+            "name": "Jose da Silva",
+            "businessArea": "Rural"
+        }
+    },
+    "qtdClients": 2,
+    "qtdSellers": 2,
+    "idBestSale": 10,
+    "worstSellerName": "Pedro"
+}

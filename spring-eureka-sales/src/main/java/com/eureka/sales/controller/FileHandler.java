@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -27,6 +26,9 @@ public class FileHandler {
         return new FileHandler();
     }
 
+    /**
+     * Método reponsável por ler o arquivo adicionado na pasta e processar seus dados
+     */
     public Boolean readFile(final String filePath, final String fileName) throws IOException {
         final StringBuilder contentBuilder = new StringBuilder();
 
@@ -50,7 +52,9 @@ public class FileHandler {
 
         return true;
     }
-
+    /**
+     * Método reponsável por processar os dados do arquivo e criar um json NA PASTA DE SAÍDA
+     */
     private Boolean processData(StringBuilder content, String fileName) throws Exception {
         SalesFile fileData = new SalesFile();
         Map<String, Object> sellers = new HashMap<String, Object>();
@@ -63,11 +67,7 @@ public class FileHandler {
         Long idBestSale = 0L;
         Map<String, BigDecimal> salesAmmountBySeller = new HashMap<String, BigDecimal>();
 
-        //Long idWorstSale = 0L;
-        
-        // String worstSeller = "";
         BigDecimal biggerTotalAmmout = new BigDecimal("0.0");
-        //BigDecimal lowestTotalAmmout = new BigDecimal("0.0");
 
         for (String line : lines) {
             String[] lineContent = line.split("ç");
@@ -88,8 +88,8 @@ public class FileHandler {
                 client.setLegalDocumentNumber(lineContent[1]);
                 client.setName(lineContent[2]);
                 client.setBusinessArea(lineContent[3]);
-
                 clients.put(client.getLegalDocumentNumber(), client);
+
                 qtdClients++;
 
             } else if (id.equals("003")) {
@@ -103,12 +103,10 @@ public class FileHandler {
                 allItens = allItens.replace("[", "").replace("]", "");
                 Arrays.asList(allItens.split(",")).stream().forEach(saleItemStr -> {
                     if (saleItemStr.isEmpty()) {
-                        System.out.println("isEmpty");
                         return;
                     }
                     final String[] saleAttr = saleItemStr.split("-");
                     if (saleAttr.length < 3) {
-                        System.out.println("< 3>");
                         return;
                     }
 
@@ -157,20 +155,14 @@ public class FileHandler {
         // create final document translated
         fileData.setSellers(sellers);
         fileData.setClients(clients);
-        fileData.setSales(sales);
+        //fileData.setSales(sales);
         fileData.setQtdClients(qtdClients);
         fileData.setQtdSellers(qtdSellers);
         fileData.setIdBestSale(idBestSale);
         fileData.setWorstSellerName(sorted.entrySet().iterator().next().getKey());
 
-        //System.out.println(sorted.entrySet().iterator().next().getKey());
-        //System.out.println(sorted.entrySet().iterator().next().getValue());
-
         ObjectMapper mapper = new ObjectMapper();
 
-        /**
-         * Convert Map to JSON and write to a file
-         */
         try {
             System.out.println(":: GERANDO ARQUIVO CONSOLIDADO ....");
             mapper.writeValue(new File(System.getProperty("user.dir") + "/src/main/resources/data/out/" + fileName.replace(".txt", "") + ".json"), fileData);
